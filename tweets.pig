@@ -28,6 +28,7 @@ set elephantbird.jsonloader.nestedLoad 'true'
 
 tweets = load 'tweets.json' using com.twitter.elephantbird.pig.load.JsonLoader() as json:map[];
 texts = foreach tweets generate $0#'text' as text, $0#'entities'#'user_mentions' as user_mentions;
-test = foreach texts generate text, FLATTEN(user_mentions.name);
-a = limit test 20;
+test = foreach texts generate text, FLATTEN(user_mentions) as foo;
+test2 = foreach test generate text, foo#'screen_name' as screen_name;
+a = limit test2 20;
 dump a
