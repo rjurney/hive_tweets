@@ -16,5 +16,5 @@ for filename in glob.glob("*.js"):
   # Now print, one json object per line
   for tweet in tweets:
     print json.dumps(tweet)
-  
-    
+
+# Done - we've printed the tweets, one json record per line
