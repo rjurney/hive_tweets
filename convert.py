@@ -1,8 +1,12 @@
+#!/usr/bin/env python
+
 import sys, os, glob
 import json
 
+tweet_base = sys.argv[1]
+
 # Open tweets
-os.chdir("tweets")
+os.chdir(tweet_base + "/data/js/tweets")
 for filename in glob.glob("*.js"):
   f = open(filename)
   lines = f.readlines()
